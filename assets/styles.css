@@ -1,0 +1,24 @@
+
+
+.login-form {
+    max-width: 500px;
+}
+
+body, html {
+  font-family: "DM Sans", sans-serif!important;
+  font-optical-sizing: auto;
+}
+
+body {
+    padding-top: 76px;
+}
+
+
+.navbar-logo {
+  max-width: 150px;
+}
+
+
+.form-container {
+  max-width: 800px;
+}
