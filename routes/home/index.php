@@ -34,7 +34,103 @@ $user = is_logged() ? get_logged_user() : [];
         </div>
         <!--/.bg-holder-->
 
-        <div class="container-lg">
+
+        <!--/.Programs-->
+
+        <section id="our-programs" class="py-5 bg-light">
+  <div class="container-lg">
+    <!-- Section Title -->
+    <div class="row justify-content-center">
+      <div class="col-12 text-center mb-4">
+        <h2 class="fw-bold text-primary">Our Programs</h2>
+        <hr class="w-25 mx-auto text-dark" style="height: 2px;" />
+      </div>
+    </div>
+
+    <!-- Intro Text -->
+    <div class="row justify-content-center">
+      <div class="col-sm-10 col-md-8 text-center mb-5">
+        <p class="text-muted">
+          Our mission is to simplify the university admission process, providing students with seamless access to a wide range of private universities across Bangladesh. We empower prospective students by offering an intuitive platform where they can explore, apply, and secure their place in the right academic institution, all in one convenient location.
+        </p>
+      </div>
+    </div>
+
+    <!-- Program Cards -->
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="course-card text-center p-4">
+          <h5 class="fw-bold">Computer Science & Engineering</h5>
+          <p class="text-muted mt-3">Explore the world of computing and technology. Prepare for a career in software development, AI, and more.</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="course-card text-center p-4">
+          <h5 class="fw-bold">Business Administration</h5>
+          <p class="text-muted mt-3">Gain expertise in management and leadership. Build a foundation for top executive roles.</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="course-card text-center p-4">
+          <h5 class="fw-bold">Electrical & Electronics Engineering</h5>
+          <p class="text-muted mt-3">Learn about power systems, embedded systems, and cutting-edge communication technologies.</p>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="course-card text-center p-4">
+          <h5 class="fw-bold">Architecture</h5>
+          <p class="text-muted mt-3">Transform your passion for design into a career. Create functional and aesthetic spaces.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inline CSS for dynamic styles -->
+<style>
+  #our-programs {
+    background-color: #f8f9fa;
+  }
+
+  .course-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .fw-bold {
+    color: #0056b3;
+  }
+
+  .text-muted {
+    color: #6c757d !important;
+  }
+
+  @media (max-width: 767px) {
+    .course-card {
+      padding: 15px;
+    }
+
+    .text-center h2 {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+
+
+
+
+
+
+        <!--/.Programs-->
+
+        <!-- <div class="container-lg">
   <div class="row justify-content-center">
     <div class="col-3 text-center">
       <h2 class="fw-bold">Our Programs</h2>
@@ -98,7 +194,7 @@ $user = is_logged() ? get_logged_user() : [];
   .text-muted {
     color: #6c757d !important;
   }
-</style>
+</style> -->
 
 
  <!-- <div class="row justify-content-center h-100 pt-7 g-4">
@@ -268,6 +364,199 @@ the Vice Chancellor</h2>
           </div>
         </div>
       </section>
+
+
+      <!--/.list of universities-->
+
+
+
+      <section id="university-list" class="py-5 bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="container text-center">
+        <h1 class="text-center mb-4 fw-bold text-primary">Explore Top Private Universities</h1>
+        <p class="text-center text-muted mb-4">
+            Discover the best private universities in Bangladesh. Choose your dream institution and start your application today!
+        </p>
+
+        <!-- Sort Dropdown -->
+        <div class="d-flex justify-content-center mb-4">
+            <label for="sort" class="me-2">Sort by:</label>
+            <select id="sort" class="form-select w-auto" onchange="sortUniversities()">
+                <option value="rating-desc">Highest Rating</option>
+                <option value="rating-asc">Lowest Rating</option>
+                <option value="price-desc">Highest Course Price</option>
+                <option value="price-asc">Lowest Course Price</option>
+            </select>
+        </div>
+
+        <!-- Universities List -->
+        <div id="universities-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Dynamic university cards will be appended here -->
+        </div>
+    </div>
+</section>
+
+<!-- Add Bootstrap's JS and your custom JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const universities = [
+    {
+        id: 1,
+        name: "BRAC University",
+        rating: 4.8,
+        courses: [
+            { name: "BBA", price: 200000 },
+            { name: "CSE", price: 300000 }
+        ],
+        location: "Dhaka"
+    },
+    {
+        id: 2,
+        name: "North South University",
+        rating: 4.7,
+        courses: [
+            { name: "MBA", price: 250000 },
+            { name: "EEE", price: 270000 }
+        ],
+        location: "Dhaka"
+    },
+    {
+        id: 3,
+        name: "BUP",
+        rating: 4.9,
+        courses: [
+            { name: "Economics", price: 220000 },
+            { name: "IT", price: 260000 }
+        ],
+        location: "Dhaka Cantonment"
+    }
+];
+
+function displayUniversities(data) {
+    const container = document.getElementById('universities-container');
+    container.innerHTML = '';
+
+    data.forEach(university => {
+        const universityCard = `
+            <div class="col">
+                <div class="card university-card shadow-sm border-0 rounded-3 overflow-hidden">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">
+                            <a href="<?= e_attr(uri('/apply')) ?>" class="text-decoration-none text-primary fs-4">
+                                ${university.name}
+                            </a>
+                        </h5>
+                        <p class="text-center text-muted"><strong>Location:</strong> ${university.location}</p>
+                        <p class="text-center"><strong>Rating:</strong> <span class="text-danger">${university.rating} ★</span></p>
+                        
+                        <h6 class="mt-3">Courses:</h6>
+                        <ul class="list-unstyled">
+                            ${university.courses.map(course => `
+                                <li class="d-flex justify-content-between">
+                                    <span>${course.name}</span>
+                                    <span><strong>BDT ${course.price.toLocaleString()}</strong></span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a class="btn btn-primary w-100" href="<?= e_attr(uri('/apply')) ?>">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.innerHTML += universityCard;
+    });
+}
+
+function sortUniversities() {
+    const sortBy = document.getElementById('sort').value;
+    let sortedUniversities = [...universities];
+
+    if (sortBy === 'rating-desc') {
+        sortedUniversities.sort((a, b) => b.rating - a.rating);
+    } else if (sortBy === 'rating-asc') {
+        sortedUniversities.sort((a, b) => a.rating - b.rating);
+    } else if (sortBy === 'price-desc') {
+        sortedUniversities.sort((a, b) => Math.max(...b.courses.map(c => c.price)) - Math.max(...a.courses.map(c => c.price)));
+    } else if (sortBy === 'price-asc') {
+        sortedUniversities.sort((a, b) => Math.min(...a.courses.map(c => c.price)) - Math.min(...b.courses.map(c => c.price)));
+    }
+
+    displayUniversities(sortedUniversities);
+}
+
+displayUniversities(universities);
+</script>
+
+<!-- Custom CSS -->
+<style>
+.university-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.university-card {
+    transition: all 0.3s ease;
+}
+
+.card-title a {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.card-title a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.text-danger {
+    font-weight: bold;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+}
+
+#university-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Ensure it adapts to content */
+    padding: 2rem 0;
+}
+
+@media (max-width: 767px) {
+    .card-footer {
+        padding: 1rem;
+    }
+    .university-card {
+        margin-bottom: 1.5rem;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+      <!--/.list of universities-->
+
+
+
+
+
+
+
+
+
+
+
+
 
       <section>
   <style>
