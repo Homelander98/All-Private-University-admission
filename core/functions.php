@@ -340,22 +340,46 @@ function active_class(string $path, string $class = 'active'): string
 
 
 
+// Function to return the list of universities
 function get_universities(): array
 {
     return [
         'BRAC' => 'BRAC University',
         'NSU' => 'North South University',
         'IUB' => 'Independent University Bangladesh',
+        'AIUB' => 'American International University-Bangladesh',
+        'UAP' => 'University of Asia Pacific'
     ];
 }
 
-
+// Function to return the list of departments
 function get_departments(): array
 {
     return [
         'CS' => 'Computer Science',
         'BA' => 'Business Administration',
         'ES' => 'Environmental Science',
+        'LAW' => 'Law',
+        'ECONOMICS' => 'Economics',
+        'ARCH' => 'Architecture',
+        'PHARMA' => 'Pharmacy',
+        'EE' => 'Electrical Engineering',
+        'MARKETING' => 'Marketing',
+        'PUBLIC_HEALTH' => 'Public Health',
+        'MEDIA' => 'Media & Communication',
+        'FINANCE' => 'Finance',
+        'CIVIL' => 'Civil Engineering',
+        'SOFTWARE' => 'Software Engineering',
+        'AI' => 'Artificial Intelligence',
+        'ACCOUNTING' => 'Accounting',
+        'MECHANICAL' => 'Mechanical Engineering',
+        'DIGITAL_MARKETING' => 'Digital Marketing',
+        'STATISTICS' => 'Statistics',
+        'ROBOTICS' => 'Robotics',
+        'SUPPLY_CHAIN' => 'Supply Chain Management',
+        'TELECOM' => 'Telecommunication Engineering',
+        'IR' => 'International Relations',
+        'SOCIOLOGY' => 'Sociology'
     ];
 }
 

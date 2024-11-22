@@ -3,6 +3,66 @@
 $page_title = 'Browse Programs';
 
 require(ROUTES_PATH . '/header.php');
+
+// Define university and department data
+$universities = [
+    [
+        'name' => 'BRAC University',
+        'price_range' => [300000, 500000],
+        'departments' => [
+            'Computer Science & Engineering',
+            'Business Administration',
+            'Law',
+            'Economics',
+            'Architecture'
+        ]
+    ],
+    [
+        'name' => 'North South University',
+        'price_range' => [350000, 450000],
+        'departments' => [
+            'Pharmacy',
+            'Environmental Science',
+            'Electrical Engineering',
+            'Marketing',
+            'Public Health'
+        ]
+    ],
+    [
+        'name' => 'Independent University Bangladesh',
+        'price_range' => [320000, 470000],
+        'departments' => [
+            'Environmental Science',
+            'Media & Communication',
+            'Finance',
+            'Civil Engineering',
+            'Software Engineering'
+        ]
+    ],
+    [
+        'name' => 'American International University-Bangladesh',
+        'price_range' => [250000, 400000],
+        'departments' => [
+            'Artificial Intelligence',
+            'Accounting',
+            'Mechanical Engineering',
+            'Digital Marketing',
+            'Statistics'
+        ]
+    ],
+    [
+        'name' => 'University of Asia Pacific',
+        'price_range' => [270000, 380000],
+        'departments' => [
+            'Robotics',
+            'Supply Chain Management',
+            'Telecommunication Engineering',
+            'International Relations',
+            'Sociology'
+        ]
+    ]
+];
+
 ?>
 
 <style>
@@ -12,70 +72,46 @@ require(ROUTES_PATH . '/header.php');
         background-color: #f9f9f9;
     }
 
-    .program-page-header {
+    .program-header {
         background-color: #0056b3;
         color: #ffffff;
         padding: 60px 20px;
         text-align: center;
     }
 
-    .program-page-header h1 {
+    .program-header h1 {
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 10px;
     }
 
-    .program-page-header p {
+    .slider-container {
+        margin: 30px 0;
+    }
+
+    .slider-label {
         font-size: 1.2rem;
-        margin-top: 10px;
-        color: #e0e0e0;
-    }
-
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .card {
-        background-color: #ffffff;
-        border: none;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-        max-width: 360px;
-        width: 100%;
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .card-body {
-        padding: 20px;
-    }
-
-    .card-title {
-        font-size: 1.5rem;
-        font-weight: 700;
+        font-weight: bold;
         color: #0056b3;
-        margin-bottom: 10px;
     }
 
-    .rating {
-        color: #f39c12;
-        font-size: 1rem;
-        margin-bottom: 10px;
+    .budget-slider {
+        width: 100%;
+        appearance: none;
+        height: 8px;
+        background: #e0e0e0;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
 
-    .program-list {
-        padding-left: 20px;
-        margin-bottom: 15px;
-        font-size: 0.95rem;
-        color: #555;
+    .budget-slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: cyan;
+        border-radius: 50%;
+        cursor: pointer;
     }
 
     .btn-primary {
@@ -90,81 +126,107 @@ require(ROUTES_PATH . '/header.php');
         background-color: #0056b3;
         border-color: #0056b3;
     }
-
-    @media (max-width: 768px) {
-        .program-page-header h1 {
-            font-size: 2rem;
-        }
-
-        .program-page-header p {
-            font-size: 1rem;
-        }
-    }
 </style>
 
-<div class="program-page-header">
-    <h1>Browse Programs - Top Private Universities</h1>
-    <p>Explore a range of programs from top institutions and find your ideal course.</p>
+<div class="program-header">
+    <h1>Select Your Budget and Preferences</h1>
+    <p>We will suggest the best university and department for you.</p>
 </div>
 
 <div class="container my-5">
-    <div class="card-container">
-        <!-- BRAC University -->
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title">BRAC University</h2>
-                <p><strong>Location:</strong> Dhaka, Bangladesh</p>
-                <p class="rating">★ 4.8</p>
-                <p><strong>Programs Offered:</strong></p>
-                <ul class="program-list">
-                    <li>Bachelor of Business Administration</li>
-                    <li>Bachelor of Science in Computer Science</li>
-                    <li>Bachelor of Laws</li>
-                    <li>Master of Development Studies</li>
-                </ul>
-                <button class="btn btn-primary" onclick="window.location.href='https://www.bracu.ac.bd';">Browse</button>
-            </div>
+    <form id="universityForm" method="POST">
+        <div class="slider-container">
+            <label for="budgetSlider" class="slider-label">Select your Budget</label>
+            <input
+                type="range"
+                id="budgetSlider"
+                name="budget"
+                class="budget-slider"
+                min="250000"
+                max="500000"
+                step="5000"
+                value="375000"
+                oninput="updateBudgetLabel(this.value)"
+            />
+            <p>Selected Budget: BDT <span id="budgetLabel">375000</span></p>
         </div>
 
-        <!-- North South University -->
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title">North South University</h2>
-                <p><strong>Location:</strong> Dhaka, Bangladesh</p>
-                <p class="rating">★ 4.7</p>
-                <p><strong>Programs Offered:</strong></p>
-                <ul class="program-list">
-                    <li>Bachelor of Architecture</li>
-                    <li>Bachelor of Pharmacy</li>
-                    <li>Bachelor of Science in Environmental Science</li>
-                    <li>Master of Public Health</li>
-                </ul>
-                <button class="btn btn-primary" onclick="window.location.href='https://www.northsouth.edu/';">Browse</button>
-            </div>
+        <div class="form-group">
+            <label for="departmentSelect">Select a Department</label>
+            <select id="departmentSelect" name="department" class="form-control">
+                <option value="">-- Choose Department --</option>
+                <?php
+                $departments = array_unique(array_merge(...array_column($universities, 'departments')));
+                foreach ($departments as $department) {
+                    echo "<option value=\"$department\">$department</option>";
+                }
+                ?>
+            </select>
         </div>
 
-        <!-- Independent University Bangladesh -->
-        <div class="card">
-            <div class="card-body">
-                <h2 class="card-title">Independent University Bangladesh</h2>
-                <p><strong>Location:</strong> Dhaka, Bangladesh</p>
-                <p class="rating">★ 4.6</p>
-                <p><strong>Programs Offered:</strong></p>
-                <ul class="program-list">
-                    <li>Bachelor of Environmental Science and Management</li>
-                    <li>Bachelor of Business Administration</li>
-                    <li>Bachelor of Science in Computer Science</li>
-                    <li>Master of Business Administration</li>
-                </ul>
-                <button class="btn btn-primary" onclick="window.location.href='https://iub.ac.bd/';">Browse</button>
-            </div>
+        <div class="form-group">
+            <label for="gpaInput">Enter Combined GPA (SSC + HSC)</label>
+            <input type="number" id="gpaInput" name="gpa" class="form-control" step="0.01" placeholder="Enter GPA (e.g., 10.00)" />
         </div>
+
+        <button type="button" class="btn btn-primary" onclick="suggestUniversity()">Suggest University</button>
+    </form>
+
+    <div id="suggestionBox" class="mt-4" style="display: none;">
+        <h3>Suggested University</h3>
+        <p id="suggestionText"></p>
+        <a id="applyButton" href="#" class="btn btn-primary w-100" style="display: none;">Apply Now</a>
     </div>
 </div>
 
+<script>
+    function updateBudgetLabel(value) {
+        document.getElementById("budgetLabel").textContent = value;
+    }
+
+    function suggestUniversity() {
+        const budget = parseInt(document.getElementById("budgetSlider").value);
+        const department = document.getElementById("departmentSelect").value;
+        const gpa = parseFloat(document.getElementById("gpaInput").value);
+        const suggestionBox = document.getElementById("suggestionBox");
+        const suggestionText = document.getElementById("suggestionText");
+        const applyButton = document.getElementById("applyButton");
+
+        if (!department || isNaN(gpa)) {
+            alert("Please select a department and enter your GPA.");
+            return;
+        }
+
+        let suggestedUniversity = null;
+        let reducedPrice = null;
+
+        for (const uni of <?= json_encode($universities) ?>) {
+            if (
+                uni.departments.includes(department) &&
+                budget >= uni.price_range[0] &&
+                budget <= uni.price_range[1]
+            ) {
+                suggestedUniversity = uni.name;
+                const avgPrice = (uni.price_range[0] + uni.price_range[1]) / 2;
+                reducedPrice = gpa === 10 ? avgPrice * 0.7 : avgPrice;
+                break;
+            }
+        }
+
+        if (suggestedUniversity) {
+            suggestionText.innerHTML = `We recommend <strong>${suggestedUniversity}</strong> for the <strong>${department}</strong> department. Estimated fees: <strong>BDT ${reducedPrice.toFixed(0)}</strong>`;
+            applyButton.style.display = "block";
+            // Dynamically set the Apply Now button's href
+            applyButton.href = "<?= e_attr(uri('/apply')) ?>?university=" + encodeURIComponent(suggestedUniversity) + "&department=" + encodeURIComponent(department) + "&fees=" + reducedPrice.toFixed(0);
+        } else {
+            suggestionText.innerHTML = "No university matches your criteria.";
+            applyButton.style.display = "none";
+        }
+
+        suggestionBox.style.display = "block";
+    }
+</script>
+
 <?php
 require(ROUTES_PATH . '/footer.php');
-
-clear_old();
-clear_flash();
 ?>
