@@ -43,38 +43,65 @@ $user = is_logged() ? get_logged_user() : [];
   </div>
   <div class="row justify-content-center">
     <div class="col-sm-9 col-xl-8 text-center">
-      <p>Our mission is to simplify the university admission process, providing students with seamless access to a wide range of private universities across Bangladesh. We aim to empower prospective students by offering an intuitive platform where they can explore, apply, and secure their place in the right academic institution, all in one convenient location.</p>
+      <p class="text-muted">
+        Our mission is to simplify the university admission process, providing students with seamless access to a wide range of private universities across Bangladesh. We aim to empower prospective students by offering an intuitive platform where they can explore, apply, and secure their place in the right academic institution, all in one convenient location.
+      </p>
     </div>
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col-6 col-md-4 col-lg-3 text-center">
       <div class="course-card">
-        <h5>Computer Science & Engineering</h5>
+        <h5 class="fw-bold">Computer Science & Engineering</h5>
         <p>Explore the world of computing and technology with a degree in Computer Science & Engineering. Prepare for a career in software development, network engineering, and AI.</p>
       </div>
     </div>
     <div class="col-6 col-md-4 col-lg-3 text-center">
       <div class="course-card">
-        <h5>Business Administration</h5>
+        <h5 class="fw-bold">Business Administration</h5>
         <p>Gain expertise in business management, marketing, and leadership through a comprehensive Business Administration program designed to prepare you for top executive roles.</p>
       </div>
     </div>
     <div class="col-6 col-md-4 col-lg-3 text-center">
       <div class="course-card">
-        <h5>Electrical & Electronics Engineering</h5>
+        <h5 class="fw-bold">Electrical & Electronics Engineering</h5>
         <p>Dive into the world of electronics and electrical systems, focusing on everything from power generation to embedded systems and communication technology.</p>
       </div>
     </div>
     <div class="col-6 col-md-4 col-lg-3 text-center">
       <div class="course-card">
-        <h5>Architecture</h5>
+        <h5 class="fw-bold">Architecture</h5>
         <p>Transform your passion for design into a career with a degree in Architecture, learning to create functional, sustainable, and aesthetic spaces.</p>
       </div>
     </div>
   </div>
 </div>
 
-          <div class="row justify-content-center h-100 pt-7 g-4">
+<!-- Inline CSS for dynamic styles -->
+<style>
+  .course-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .fw-bold {
+    color: #0056b3;
+  }
+
+  .text-muted {
+    color: #6c757d !important;
+  }
+</style>
+
+
+ <!-- <div class="row justify-content-center h-100 pt-7 g-4">
             <div class="col-sm-9 col-md-4">
               <div class="card h-100 w-100 shadow rounded-lg p-3 p-md-2 p-lg-3 p-xl-5">
                 <div class="card-body text-center text-md-start">
@@ -145,7 +172,7 @@ $user = is_logged() ? get_logged_user() : [];
               <button class="btn btn-lg btn-outline-primary rounded-pill" type="submit">Learn more </button>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
 
 
