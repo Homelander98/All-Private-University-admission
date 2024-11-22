@@ -241,62 +241,100 @@ the Vice Chancellor</h2>
           </div>
         </div>
       </section>
+
       <section>
-        <div class="bg-holder" style="background-image:url(assets/img/illustrations/article-bg.png);background-position:right center;background-size:auto;">
-        </div>
-        <!--/.bg-holder-->
+  <style>
+    /* CSS for images inside cards */
+    .card-img-top {
+      width: 100%;   /* Ensure the image spans the full width of the card */
+      height: auto;  /* Maintain the aspect ratio */
+      object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
+    }
+  </style>
 
-        <div class="container-lg">
-          <div class="bg-holder" style="background-image:url(assets/img/illustrations/dot-2.png);background-position:left top;background-size:initial;margin-top:120px;margin-left:-35px;">
-          </div>
-          <!--/.bg-holder-->
+  <div class="bg-holder" style="background-image:url(assets/img/illustrations/article-bg.png);background-position:right center;background-size:auto;">
+  </div>
+  <!--/.bg-holder-->
 
-          <div class="row flex-center">
-            <div class="col-auto text-center">
-              <h2 class="fw-bold">Research & Publication</h2>
-              <hr class="mx-auto text-dark" style="height:2px;width:50px" />
-            </div>
-          </div>
-          <div class="row h-100 justify-content-center pt-6">
-            <div class="col-12 col-sm-9 col-md-4 mt-4">
-              <div class="card h-100 rounded-3 shadow"><img src="assets/img/gallery/article-one.png" alt="" />
-                <div class="card-body p-4 text-center text-md-start">
-                  <h5 class="fw-bold">The Future of University Admissions: A Technological Revolution</h5>
-                  <p class="card-text">This paper explores how emerging technologies, such as artificial intelligence and machine learning, are transforming university admissions.</p><a class="stretched-link text-decoration-none" href="#" role="button">Read more
-                    <svg class="bi bi-arrow-right-short" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
-                    </svg></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-9 col-md-4 mt-4">
-              <div class="card h-100 rounded-3 shadow"><img src="assets/img/gallery/article-two.png" alt="" />
-                <div class="card-body p-4 text-center text-md-start">
-                  <h5 class="fw-bold">Personalized Education through Data Analytics in University Admissions</h5>
-                  <p class="card-text">This research focuses on how data analytics is being utilized to personalize university admissions processes. By analyzing student data (academic records, extracurricular activities, etc.), universities can tailor recommendations for prospective students, guiding them to the best programs based on their unique profiles and preferences.</p><a class="stretched-link text-decoration-none" href="#" role="button">Read more
-                    <svg class="bi bi-arrow-right-short" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
-                    </svg></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-9 col-md-4 mt-4">
-              <div class="card h-100 rounded-3 shadow"><img src="assets/img/gallery/article-three.png" alt="" />
-                <div class="card-body p-4 text-center text-md-start">
-                  <h5 class="fw-bold">AI in Higher Education: Enhancing the Admission and Enrollment Experience</h5>
-                  <p class="card-text">The paper investigates the application of artificial intelligence in streamlining university admissions and enrollment processes. It covers the use of AI-powered chatbots, automated document verification systems, and predictive analytics tools that help institutions assess applicants more effectively and offer a seamless experience for students..</p><a class="stretched-link text-decoration-none" href="#" role="button">Read more
-                    <svg class="bi bi-arrow-right-short" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
-                    </svg></a>
-                </div>
-              </div>
-            </div>
-            <div class="text-center pt-4 z-index-2">
-              <button class="btn btn-lg btn-outline-primary rounded-pill z-index-2 hover-top" type="submit">View all</button>
-            </div>
+  <div class="container-lg">
+    <div class="bg-holder" style="background-image:url(assets/img/illustrations/dot-2.png);background-position:left top;background-size:initial;margin-top:120px;margin-left:-35px;">
+    </div>
+    <!--/.bg-holder-->
+
+    <div class="row flex-center">
+      <div class="col-auto text-center">
+        <h2 class="fw-bold">Research & Publication</h2>
+        <hr class="mx-auto text-dark" style="height:2px;width:50px" />
+      </div>
+    </div>
+    
+    <!-- Cards Section -->
+    <div class="row justify-content-center pt-6">
+      <!-- First Card -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card h-100 rounded-3 shadow">
+          <a href="https://files.eric.ed.gov/fulltext/EJ1026722.pdf" target="_blank" class="stretched-link"></a>
+          <img class="card-img-top" src="assets/img/gallery/article-one.png" alt="" />
+          <div class="card-body p-4 text-center text-md-start">
+            <h5 class="fw-bold">The Future of University Admissions: A Technological Revolution</h5>
+            <p class="card-text">This paper explores how emerging technologies, such as artificial intelligence and machine learning, are transforming university admissions.</p>
+            <button class="btn btn-link p-0 text-decoration-none">
+              Read more
+              <svg class="bi bi-arrow-right-short" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+              </svg>
+            </button>
           </div>
         </div>
-      </section>
+      </div>
+
+      <!-- Second Card -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card h-100 rounded-3 shadow">
+          <a href="https://www.urbeuniversity.edu/future-university-research" target="_blank" class="stretched-link"></a>
+          <img class="card-img-top" src="assets/img/gallery/article-two.png" alt="" />
+          <div class="card-body p-4 text-center text-md-start">
+            <h5 class="fw-bold">Personalized Education through Data Analytics in University Admissions</h5>
+            <p class="card-text">This research focuses on how data analytics is being utilized to personalize university admissions processes.</p>
+            <button class="btn btn-link p-0 text-decoration-none">
+              Read more
+              <svg class="bi bi-arrow-right-short" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Third Card -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card h-100 rounded-3 shadow">
+          <a href="https://www.urbeuniversity.edu/ai-in-higher-education" target="_blank" class="stretched-link"></a>
+          <img class="card-img-top" src="assets/img/gallery/article-three.png" alt="" />
+          <div class="card-body p-4 text-center text-md-start">
+            <h5 class="fw-bold">AI in Higher Education: Enhancing the Admission and Enrollment Experience</h5>
+            <p class="card-text">The paper investigates the application of artificial intelligence in streamlining university admissions and enrollment processes.</p>
+            <button class="btn btn-link p-0 text-decoration-none">
+              Read more
+              <svg class="bi bi-arrow-right-short" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button Section -->
+      <div class="text-center pt-4 z-index-2">
+        <button class="btn btn-lg btn-outline-primary rounded-pill z-index-2 hover-top" type="button">View all</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
 
 
     </main>
